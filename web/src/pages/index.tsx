@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   FormControl,
+  FormHelperText,
   FormLabel,
   Heading,
   Input,
@@ -77,13 +78,17 @@ const Index = () => {
         <FormControl id="equation">
           <FormLabel>Equation: </FormLabel>
           <Input value={eq} onChange={(e) => setEq(e.target.value)} />
+          <FormHelperText>
+            You must express coefficiants explicitly. ex: 3x -{">"} 3 * x.
+            Absolute values: don't work :(
+          </FormHelperText>
         </FormControl>
         <Button
           colorScheme="teal"
-          mt="auto"
           ml={2}
           onClick={handleSubmit}
           isLoading={loading}
+          my={8}
         >
           Solve
         </Button>

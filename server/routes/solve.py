@@ -18,6 +18,7 @@ def solve():
         
         x = symbols('x')
         answers = s_solve(equation, x)
+        print(answers)
         return jsonify({
             'answers': [latex(answer) for answer in answers]
         })
