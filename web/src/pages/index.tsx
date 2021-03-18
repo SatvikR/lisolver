@@ -19,6 +19,12 @@ enum EquationOptions {
   SOLVEFORX = "solve",
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+
+const api = axios.create({
+  baseURL: API_URL,
+});
+
 const Index = () => {
   const [eq, setEq] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -40,7 +46,7 @@ const Index = () => {
     }
     const options: AxiosRequestConfig = {
       method: "POST",
-      url: `http://localhost:4000/${eqOption}`,
+      url: `/${eqOption}`,
       headers: { "Content-Type": "application/json" },
       data: { equation: eq },
     };
@@ -48,13 +54,13 @@ const Index = () => {
     let res;
     switch (eqOption) {
       case EquationOptions.SIMPLIFY:
-        res = await axios.request<SimplifyResponse>(options);
+        res = await api.request<SimplifyResponse>(options);
         if (res.data.answer) {
           setSimplifyAnswer(res.data.answer);
         }
         break;
       case EquationOptions.SOLVEFORX:
-        res = await axios.request<SolveResponse>(options);
+        res = await api.request<SolveResponse>(options);
         if (res.data.answers) {
           setSolveAnswers(res.data.answers);
         }
