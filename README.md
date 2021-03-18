@@ -1,5 +1,7 @@
 # Lisolver
 
+URL: https://lisolver.vercel.app/
+
 Demo: https://youtu.be/4wv26hKGAi0
 
 An open source equation solver written in python and typescript (also written in ~2 hours which is why it is has no error handling!)
