@@ -91,11 +91,15 @@ const Index = () => {
       </Flex>
       {solveAnswers && (
         <Box my={4}>
-          <Heading size="md">Answer</Heading>
+          <Heading size="md">Answers: </Heading>
           <MathJax.Provider>
             {solveAnswers.map((e, i) => {
-              // return <Latex key={i}>{`\$\$${e}\$\$`}</Latex>;
-              return <MathJax.Node formula={e} key={i} />;
+              const _e = i === solveAnswers.length - 1 ? e : e + ", ";
+              return (
+                <>
+                  <MathJax.Node formula={`${_e}`} key={i} />
+                </>
+              );
             })}
           </MathJax.Provider>
         </Box>
