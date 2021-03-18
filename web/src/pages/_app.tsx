@@ -1,9 +1,8 @@
-import { Box, ChakraProvider, Flex, Link } from "@chakra-ui/react";
-
-import theme from "../theme";
+import { ChakraProvider, Flex, Link } from "@chakra-ui/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
+import theme from "../theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
