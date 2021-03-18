@@ -1,18 +1,17 @@
 import {
   Box,
+  Button,
   Flex,
   FormControl,
   FormLabel,
   Heading,
   Input,
-  Button,
   Select,
-  Text,
 } from "@chakra-ui/react";
 import axios, { AxiosRequestConfig } from "axios";
 import React, { useState } from "react";
-import { SimplifyResponse, SolveResponse } from "../types/EquationResponse";
 import MathJax from "react-mathjax";
+import { SimplifyResponse, SolveResponse } from "../types/EquationResponse";
 
 enum EquationOptions {
   SIMPLIFY = "simplify",
