@@ -1,0 +1,2 @@
+class EquationError(Exception):
+    pass
