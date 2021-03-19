@@ -10,11 +10,10 @@ def solve():
     body = request.json
     try:
         equation = body['equation']
-        if '=' in equation:
-            sections = equation.split('=')
-            if len(sections) > 2:
-                raise EquationError
-            equation = f'{sections[0]} - ({sections[1]})'
+        if equation.count('=') == 1:
+            equation = equation.replace('=', '-')
+        elif equation.count('=') > 1:
+            raise EquationError
         
         x = symbols('x')
         answers = s_solve(equation, x)
